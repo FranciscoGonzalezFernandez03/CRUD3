@@ -1,7 +1,6 @@
 <?php
 class GestorPublicacion{
 
-
     public function __construct(){
         if (!isset($_SESSION["publicaciones"])){
             $_SESSION['publicaciones']=[];
