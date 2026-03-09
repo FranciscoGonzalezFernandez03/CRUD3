@@ -9,7 +9,20 @@ class PublicacionController {
     }
 
     public function index() {
-        $publicaciones = $this->gestor->listar();
+        //Cálculos para el paginador del libros 
+        $libros = $this->gestor->listarLibros();
+        $totalLibros=count($libros);
+        $librosPorPaginas=3;
+        $totalPaginasLibros=ceil($totalLibros/$librosPorPaginas);
+        $paginaActualLibros=$_GET['pActualLibros'] ?? 1;
+        $librosAcortados=array_slice($libros, ($paginaActualLibros-1)*$librosPorPaginas, $librosPorPaginas);
+        //Cálculos para el paginador del revistas
+        $revistas = $this->gestor->listarRevistas();
+        $totalRevistas=count($revistas);
+        $revistasPorPaginas=3;
+        $totalPaginasRevistas=ceil($totalRevistas/$revistasPorPaginas);
+        $paginaActualRevistas=$_GET['pActualRevistas'] ?? 1;
+        $revistasAcortados=array_slice($revistas, ($paginaActualRevistas-1)*$revistasPorPaginas, $revistasPorPaginas);
         include "views/listar.php";
     }
 

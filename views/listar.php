@@ -20,7 +20,7 @@
         <th>Acciones</th>
     </tr>
 
-    <?php foreach ($publicaciones as $p): ?>
+    <?php foreach ($librosAcortados as $p): ?>
         <?php if ($p instanceof Libro): ?>
 
     <tr>
@@ -44,6 +44,10 @@
     <?php endforeach; ?>
 </table>
 
+    <?php for($i=1;$i<=$totalPaginasLibros;$i++):?>
+        <a href='index.php?accion=index&pActualLibros=<?=$i?>'><?=$i?>></a>
+    <?php endfor;?>
+
 <h3>REVISTA</h3>
     <!-- LISTADO DE REVISTAS -->
     <table border="1" cellpadding="10">
@@ -54,7 +58,7 @@
             <th>Acciones</th>
 
         </tr>
-    <?php foreach ($publicaciones as $p): ?>
+    <?php foreach ($revistasAcortados as $p): ?>
         <?php if ($p instanceof Revista): ?>
         <tr>
             <td><?= $p->getIsbn() ?></td> <td><?= $p->getColor() ?></td> <td><?= $p->getTematica() ?></td> 
@@ -71,5 +75,8 @@
         <?php endif; ?>
         <?php endforeach; ?>
 </table>
+<?php for($i=1;$i<=$totalPaginasRevistas;$i++):?>
+        <a href='index.php?accion=index&pActualRevistas=<?=$i?>'><?=$i?>></a>
+    <?php endfor;?>
 </body>
 </html>

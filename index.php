@@ -27,11 +27,4 @@ switch ($accion) {
         $controller->index();
 }
 
-
-
-
-
-
-
-
 ?>
