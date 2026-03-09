@@ -5,7 +5,7 @@ class Revista extends Publicacion{
 
     public function __construct($isbn, $color, $tematica)
     {
-        return parent::__construct($isbn);
+        parent::__construct($isbn);
         $this->color=$color;
         $this->tematica=$tematica;
     }
@@ -16,6 +16,15 @@ class Revista extends Publicacion{
 
     public function setTematica($tematica){
         $this->tematica = $tematica;
+    }
+
+    public function getColor(){
+        return $this->color;
+    }
+
+
+    public function getTematica(){
+        return $this->tematica;
     }
 }
 ?>

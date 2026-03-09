@@ -5,7 +5,7 @@ class Libro extends Publicacion{
 
     public function __construct($isbn, $editorial, $paginas)
     {
-        return parent::__construct($isbn);
+        parent::__construct($isbn);
         $this->editorial=$editorial;
         $this->paginas=$paginas;
     }
@@ -16,6 +16,14 @@ class Libro extends Publicacion{
 
     public function setPaginas($paginas){
         $this->paginas = $paginas;
+    }
+
+    public function getEditorial(){
+        return $this->editorial;
+    }
+
+    public function getPaginas(){
+        return $this->paginas;
     }
 }
 ?>
